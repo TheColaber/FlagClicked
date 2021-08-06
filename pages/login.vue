@@ -14,13 +14,13 @@ export default {
   middleware: ["notauthenticated"],
   data() {
     return {
-      code: ""
+      code: "",
     };
   },
   async mounted() {
     let res = await fetch("/api/sessions/init", {
-      method: "PUT"
-    }).then(res => res.json());
+      method: "PUT",
+    }).then((res) => res.json());
     this._private = res.private;
     this.code = res.public;
   },
@@ -39,16 +39,16 @@ export default {
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
             private: this._private,
-            code: this.code
+            code: this.code,
           }),
-          method: "PUT"
+          method: "PUT",
         });
       } catch (error) {
         console.log(error.response?.data.message || error);
       }
       this.$store.dispatch("auth/refreshUserDetails");
       this.$router.push({ path: "/" });
-    }
-  }
+    },
+  },
 };
 </script>

@@ -3,16 +3,16 @@ const { Schema, model } = require("mongoose");
 const schema = new Schema({
   id: {
     required: true,
-    type: Number
+    type: Number,
   },
   username: {
     required: true,
-    type: String
+    type: String,
   },
   admin: {
     required: false,
-    type: Boolean
-  }
+    type: Boolean,
+  },
 });
 
 module.exports = model("User", schema);

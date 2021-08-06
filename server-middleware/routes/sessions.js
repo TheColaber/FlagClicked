@@ -24,8 +24,9 @@ const Auth = {};
 router.put("/login", async (req, res) => {
   console.log("e", process.env.studioId);
   let resp = await fetch(
-    `https://api.scratch.mit.edu/studios/${process.env.studioId ||
-      30078251}/comments?limit=40`
+    `https://api.scratch.mit.edu/studios/${
+      process.env.studioId || 30078251
+    }/comments?limit=40`
   );
   let comments = await resp.json();
 
@@ -41,7 +42,7 @@ router.put("/login", async (req, res) => {
       if (!user) {
         let scratchUser = await fetch(
           `https://api.scratch.mit.edu/users/${username}`
-        ).then(res => res.json());
+        ).then((res) => res.json());
 
         if (scratchUser.code == "NotFound") {
           res.status(400).json({ message: "User is not a scratch user!" });
@@ -50,7 +51,7 @@ router.put("/login", async (req, res) => {
         user = new User({
           id: scratchUser.id,
           username: scratchUser.username,
-          admin: false
+          admin: false,
         });
         try {
           await user.save();
@@ -82,7 +83,7 @@ router.put("/init", async (req, res) => {
   let token = new Token({
     public: publicCode,
     private: privateCode,
-    createdAt: { type: Date, expires: 5 }
+    createdAt: { type: Date, expires: 5 },
   });
   try {
     res.status(201).json(await token.save());
@@ -92,7 +93,7 @@ router.put("/init", async (req, res) => {
 });
 
 function middleware(type) {
-  return async function(req, res, next) {
+  return async function (req, res, next) {
     console.log("start");
     let session = await Session.findOne({ session: req.cookies.token });
     if (!session) return res.status(403).json({ message: "Not logged in" });

@@ -1,6 +1,6 @@
 const cookie = process.server ? require("cookie") : require("js-cookie");
 
-export default async function({ redirect, req, store, $auth, $util }) {
+export default async function ({ redirect, req, store, $auth, $util }) {
   // let token = null;
   // if (process.server) {
   //   if (req.headers.cookie) {

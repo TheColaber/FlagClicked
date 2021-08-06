@@ -3,7 +3,7 @@ import cookies from "js-cookie";
 
 export const state = () => ({
   user: null,
-  token: null
+  token: null,
 });
 
 export const mutations = {
@@ -18,7 +18,7 @@ export const mutations = {
   },
   resetToken(store) {
     store.token = null;
-  }
+  },
 };
 
 export const actions = {
@@ -35,7 +35,7 @@ export const actions = {
     try {
       res = await fetch(`${base}/api/sessions/me`, {
         credentials: "include",
-        headers
+        headers,
       });
     } catch (ex) {
       throw "Fetch Error";
@@ -65,7 +65,7 @@ export const actions = {
       res = await fetch(`${base}/auth/delete`, {
         method: "PUT",
         credentials: "include",
-        headers
+        headers,
       });
     } catch (ex) {
       throw "Fetch Error";
@@ -74,5 +74,5 @@ export const actions = {
     commit("resetUser");
     commit("resetToken");
     return res;
-  }
+  },
 };

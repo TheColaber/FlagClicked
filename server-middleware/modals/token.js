@@ -3,12 +3,12 @@ const { Schema, model } = require("mongoose");
 const schema = new Schema({
   private: {
     required: true,
-    type: String
+    type: String,
   },
   public: {
     required: true,
-    type: String
-  }
+    type: String,
+  },
 });
 
 module.exports = model("Token", schema);

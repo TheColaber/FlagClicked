@@ -19,20 +19,20 @@ export const actions = {
       console.log(await this.$axios.get("/auth/me"));
       return;
       const data = await fetch(`/auth/me`, {
-        headers: { cookie: req.headers.cookie }
-      }).then(res => res.json());
+        headers: { cookie: req.headers.cookie },
+      }).then((res) => res.json());
       console.log(data);
 
       if (data.error) {
         commit("auth/resetUser", null);
         commit("auth/resetToken", null);
         res.setHeader("Set-Cookie", [
-          `token=false; expires=Thu, 01 Jan 1970 00:00:00 GMT`
+          `token=false; expires=Thu, 01 Jan 1970 00:00:00 GMT`,
         ]);
       } else {
         commit("auth/setUser", data);
         commit("auth/setToken", token);
       }
     }
-  }
+  },
 };

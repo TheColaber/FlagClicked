@@ -8,7 +8,7 @@ app.use(express.json());
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/flagclicked", {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 db.on("error", console.error);
