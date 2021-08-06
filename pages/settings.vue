@@ -1,7 +1,7 @@
 <template>
   <div class="margined">
     <h1>Settings</h1>
-    <button @click="logout()">Logout</button>
+    <button @click="logout">Logout</button>
   </div>
 </template>
 <script>
