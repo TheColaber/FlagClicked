@@ -6,3 +6,4 @@ yarn.lock
 .vercel
 .vscode
 *.log
+package-lock.json

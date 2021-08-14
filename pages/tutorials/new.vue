@@ -1,14 +1,11 @@
 <template>
   <div class="container">
-    <div class="margined">
+      <input type="text" placeholder="Title" v-model="title" />
       <div class="tutorial-editor">
-        <div class="col">
-          <input type="text" placeholder="Title" v-model="title" />
-          <textarea v-model="input"></textarea>
-          <button @click="createTutorial">Create Tutorial</button>
-        </div>
+        <textarea v-model="input"></textarea>
         <Renderer :content="input" />
       </div>
+      <button @click="createTutorial">Create Tutorial</button>
       <Loading v-if="loading" />
     </div>
   </div>
@@ -57,25 +54,31 @@ export default {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
 }
-.tutorial-editor .col textarea {
+textarea {
   resize: none;
-  padding: 20px;
   font-family: "Monaco", courier, monospace;
-  width: calc(100% - 60px);
-  border: 1px black;
-  border-radius: 10px;
-  height: 90%;
+  padding: 20px;
+  border-radius: 0px 0px 0px 10px;
+  outline: none;
+  border: black solid 4px;
 }
 
-.tutorial-editor .col textarea:hover {
-  border: 1px lightblue;
-}
 input {
   padding: 10px;
+  border-radius: 10px 10px 0px 0px;
+  outline: none;
+  border: black solid 4px;
+  border-bottom: none;
+}
+button {
+  width: fit-content;
 }
 
-.tutorial-editor .rendered {
-  max-width: 90%;
+.rendered {
   overflow: auto;
+  padding: 20px;
+  border-radius: 0px 0px 10px 0px;
+  background: #000;
+  border: black solid 4px;
 }
 </style>

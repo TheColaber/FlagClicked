@@ -1,10 +1,9 @@
 <template>
   <div class="navbar">
-    <NuxtLink class="item" to="/">
+    <NuxtLink class="item left" to="/">
       when
       <img src="/greenflag.svg" class="logo" />
       clicked
-      <span class="version">ALPHA</span>
     </NuxtLink>
 
     <div class="item">
@@ -20,15 +19,17 @@
       </div>
 
       <NuxtLink to="/settings" class="item">
-        <span class="username">{{ $auth.user.username }}</span>
+        <span class="username" data-small3>{{ $auth.user.username }}</span>
         <img
-          :src="`https://cdn2.scratch.mit.edu/get_image/user/${$auth.user.id}_500x500.png`"
+          :src="
+            `https://cdn2.scratch.mit.edu/get_image/user/${$auth.user.id}_500x500.png`
+          "
         />
       </NuxtLink>
     </template>
 
     <template v-else>
-      <div class="item">
+      <div class="item" data-small3>
         <NuxtLink class="button" to="/about">About</NuxtLink>
       </div>
       <NuxtLink to="/login" class="item right">
@@ -47,16 +48,17 @@
 
 .item {
   display: flex;
-  font-size: 24px;
+  font-size: 22px;
   align-items: center;
   user-select: none;
-  height: 65px;
+  height: 55px;
   justify-content: center;
   flex: 1;
   text-decoration: none;
 }
 .button {
   display: flex;
+  font-size: 18px;
   justify-content: center;
   color: #5d657c;
   background: white;
@@ -72,21 +74,17 @@
 }
 
 .item img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
+.left {
+  flex: 0;
+  padding: 0px 2%;
+}
 .right {
-  margin-left: auto;
-}
-
-.version {
-  font-size: 10px;
-  background-color: #21bcff;
-  padding: 2px;
-  border-radius: 10px;
-  border: 10px;
-  margin-left: 10px;
+  flex: 0;
+  padding: 0px 2%;
 }
 
 .username {
@@ -107,6 +105,11 @@
 }
 @media (max-width: 800px) {
   [data-small2] {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  [data-small3] {
     display: none;
   }
 }

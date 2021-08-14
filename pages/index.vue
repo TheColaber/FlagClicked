@@ -35,6 +35,9 @@
         <span v-if="tutorial.title">{{ tutorial.title }}</span> -
         <span v-if="tutorial.author">{{ tutorial.author.username }}</span>
       </h3>
+      <NuxtLink to="/tutorials">
+        <button>Your tutorials</button>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -69,13 +72,13 @@ export default {
 
       res = await fetch(`/api/tutorial/featured`, {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         method: "PUT",
         credentials: "include",
         body: JSON.stringify({
-          id: Number(id),
-        }),
+          id: Number(id)
+        })
       });
 
       let json = await res.json();
@@ -83,8 +86,8 @@ export default {
       if (res.status == 200) {
         this.tutorial = tutorial;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -1,10 +1,8 @@
 {
-  "name": "flag-clicked",
+  "name": "flagclicked",
   "version": "1.0.0",
-  "description": "FlagClicked Frontend",
-  "author": "TheColaber and contributors",
+  "description": "FlagClicked",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -23,5 +21,8 @@
     "node-fetch": "^2.6.1",
     "nuxt": "^2.15.7"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "@nuxtjs/ngrok": "^2.0.0"
+  }
 }

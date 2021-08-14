@@ -7,7 +7,7 @@ FlagClicked is a Nuxt.js-based application using MongoDB
 
 2 things you need before being installed on your computer before beginning:
 
-#### Node.js and npm (npm is included with node)
+### Node.js and npm (npm is included with node)
 
 https://nodejs.org/en/download/current/
 
@@ -18,7 +18,11 @@ https://www.mongodb.com/try/download/community
 
 If you don't want to install MongoDB: Use the free MongoDB atlas plan.
 
-Then, make sure you have yarn installed.
+### Yarn
+
+Yarn is optional, and you may use npm instead, but we recommend yarn.
+
+Make sure you have yarn installed.
 
 ```bash
 yarn --version

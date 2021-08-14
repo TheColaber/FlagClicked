@@ -30,9 +30,10 @@ export var Tutorials = {
     return list;
   },
 
-  async new(body, author) {
+  async new(title, body, author) {
     let allTutorials = await tutorials.find();
     let tutorial = {
+      title,
       id: (allTutorials.length + 1).toString(),
       author,
       tags: [],
@@ -40,10 +41,10 @@ export var Tutorials = {
       history: {
         created: {
           time: Date.now(),
-          user: author.username,
+          user: author.username
         },
-        edited: {},
-      },
+        edited: {}
+      }
     };
     await tutorials.insert(tutorial);
 
@@ -63,14 +64,14 @@ export var Tutorials = {
         $set: {
           body,
           "meta.edited.user": editor,
-          "meta.edited.time": Date.now(),
-        },
+          "meta.edited.time": Date.now()
+        }
       }
     );
   },
-  raw: tutorials,
+  raw: tutorials
 };
 
-export default function ({}, inject) {
+export default function({}, inject) {
   inject("tutorials", Tutorials);
 }
