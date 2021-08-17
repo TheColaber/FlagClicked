@@ -21,9 +21,7 @@
       <NuxtLink to="/settings" class="item">
         <span class="username" data-small3>{{ $auth.user.username }}</span>
         <img
-          :src="
-            `https://cdn2.scratch.mit.edu/get_image/user/${$auth.user.id}_500x500.png`
-          "
+          :src="`https://cdn2.scratch.mit.edu/get_image/user/${$auth.user.id}_500x500.png`"
         />
       </NuxtLink>
     </template>

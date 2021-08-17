@@ -21,10 +21,10 @@ export default {
         languages: ["en"],
         read: scratchblocks.read,
         parse: scratchblocks.parse,
-        render: scratchblocks.render
+        render: scratchblocks.render,
       };
       let sb = Array.from(doc.querySelectorAll("code.language-scratchblocks"));
-      sb.forEach(blocks => {
+      sb.forEach((blocks) => {
         let code = sbOptions.read(blocks, sbOptions);
         let parsed = sbOptions.parse(code, sbOptions);
         let svg = sbOptions.render(parsed, sbOptions);
@@ -36,7 +36,7 @@ export default {
       let codeblocks = Array.from(
         doc.querySelectorAll("code:not(.language-scratchblocks)")
       );
-      codeblocks.forEach(el => {
+      codeblocks.forEach((el) => {
         let lang = el.classList[0];
         if (lang) {
           lang = lang.split("-")[1];
@@ -50,19 +50,19 @@ export default {
         let code = "";
         try {
           code = Rainbow.highlight(el.innerText, {
-            language: el.getAttribute("data-language")
+            language: el.getAttribute("data-language"),
           }).value;
         } catch (ex) {
           code = Rainbow.highlight(el.innerText, {
-            language: "markdown"
+            language: "markdown",
           }).value;
         }
 
         el.innerHTML = code;
       });
       return doc.body.innerHTML;
-    }
-  }
+    },
+  },
 };
 </script>
 <style>
